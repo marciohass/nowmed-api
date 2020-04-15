@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 Route::post('auth/login', 'api\\AuthController@login');
+Route::post('users', 'api\\UserController@store');
 
 Route::group(['middleware' => ['apiJWT']], function () {
 

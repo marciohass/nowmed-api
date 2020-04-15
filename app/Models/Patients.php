@@ -22,6 +22,6 @@ class Patients extends Model
         'gender',
         'birthdate',
         'cpf',
-        'id_user'
+        'user_id'
     ];
 }
