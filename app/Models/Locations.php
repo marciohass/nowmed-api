@@ -17,9 +17,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\UserServiceLocations;
+use App\Models\UserLocations;
 
-class ServiceLocations extends Model
+class Locations extends Model
 {
     protected $fillable = [
         'name',
@@ -34,6 +34,6 @@ class ServiceLocations extends Model
 
     public function UserServiceLocations()
     {
-        return $this->belongsToMany(UserServiceLocations::class);
+        return $this->belongsToMany(UserLocations::class);
     }
 }

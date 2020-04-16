@@ -6,8 +6,8 @@
  * fancy_name           var_char(255) NOT NULL
  * company_name         var_char(255) NOT_NULL
  * cnpj                 var_char(18) NOT_NULL
- * id_user              bigInt(20) NOT NULL foreign_key com a tabela users
- * id_institution_type  bigInt(20) NOT NULL foreign_key com a tabela institution_types
+ * user_id              bigInt(20) NOT NULL foreign_key com a tabela users
+ * institutiontype_id   bigInt(20) NOT NULL foreign_key com a tabela institution_types
  *
  */
 
@@ -21,7 +21,7 @@ class Institutions extends Model
         'fancy_name',
         'company_name',
         'cnpj',
-        'id_user',
-        'id_institution_type'
+        'user_id',
+        'institutiontype_id'
     ];
 }

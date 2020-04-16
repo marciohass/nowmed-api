@@ -4,9 +4,9 @@ namespace App\Http\Controllers\api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\ServiceLocations;
+use App\Models\Locations;
 
-class ServiceLocationsController extends Controller
+class LocationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ServiceLocationsController extends Controller
      */
     public function index()
     {
-        return ServiceLocations::all();
+        return Locations::all();
     }
 
 
@@ -27,7 +27,7 @@ class ServiceLocationsController extends Controller
      */
     public function store(Request $request)
     {
-        ServiceLocations::create($request->all());
+        Locations::create($request->all());
     }
 
     /**
@@ -38,7 +38,7 @@ class ServiceLocationsController extends Controller
      */
     public function show($id)
     {
-        return ServiceLocations::findOrFail($id);
+        return Locations::findOrFail($id);
     }
 
 
@@ -51,7 +51,7 @@ class ServiceLocationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $service_location = ServiceLocations::findOrFail($id);
+        $service_location = Locations::findOrFail($id);
         $service_location->update($request->all());
     }
 
@@ -63,7 +63,7 @@ class ServiceLocationsController extends Controller
      */
     public function destroy($id)
     {
-        $service_location = ServiceLocations::findOrFail($id);
+        $service_location = Locations::findOrFail($id);
         $service_location->delete();
     }
 }

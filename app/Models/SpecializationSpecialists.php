@@ -1,10 +1,10 @@
 <?php
 /**
  *
- * Tabela para auxiliar para inserir várias especializações para um profissional
+ * Tabela auxiliar para inserir várias especializações para um profissional
  *
- * id_specialist        bigInt(20) NOT NULL foreign_key Specialists
- * id_specialization    bigInt(20) NOT NULL foreign_key Specializations
+ * specialist_id        bigInt(20) NOT NULL foreign_key Specialists
+ * specialization_id    bigInt(20) NOT NULL foreign_key Specializations
  *
  */
 
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 class SpecializationSpecialists extends Model
 {
     protected $fillable = [
-        'id_specialist',
-        'id_specialization'
+        'specialist_id',
+        'specialization_id'
     ];
 }

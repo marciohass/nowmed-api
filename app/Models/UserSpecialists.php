@@ -4,8 +4,8 @@
  * Tabela auxiliar para atrelar vários profissionais a um usuário
  * Por exemplo: Um Hospital que tem vários médicos
  *
- * id_user          bigInt(20) NOT NULL foreign_key
- * id_specialist    bigInt(20) NOT NULL foreign_key
+ * user_id          bigInt(20) NOT NULL foreign_key
+ * specialist_id    bigInt(20) NOT NULL foreign_key
  *
  */
 
@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserSpecialists extends Model
 {
     protected $fillable = [
-        'id_user',
-        'id_specialist'
+        'user_id',
+        'specialist_id'
     ];
 }

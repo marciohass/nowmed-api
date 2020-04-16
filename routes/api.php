@@ -12,8 +12,29 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
+
+/**
+ *
+ * Rotas do site (sem login)
+ *
+ */
+
 Route::post('auth/login', 'api\\AuthController@login');
-Route::post('users', 'api\\UserController@store');
+
+// Rota para cadastrar novos usuários (Pacientes, Médicos, Instituições)
+Route::post('patient/users', 'api\\UserController@storePatient');
+Route::post('customer/users', 'api\\UserController@storeCustomer');
+Route::post('institution/users', 'api\\UserController@storeInstitution');
+
+
+
+/**
+ *
+ * Rotas protegidas por Login e senha
+ *
+ */
 
 Route::group(['middleware' => ['apiJWT']], function () {
 
