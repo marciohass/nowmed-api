@@ -4,9 +4,20 @@ namespace App\Http\Controllers\api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Tymon\JWTAuth\JWTAuth;
 
 class AuthController extends Controller
 {
+    /**
+     * @var JWTAuth
+     */
+    private $jwtAuth;
+
+    public function __construct(JWTAuth $jwtAuth)
+    {
+        $this->jwtAuth = $jwtAuth;
+    }
+
     /**
      * Get a JWT via given credentials.
      *
@@ -19,8 +30,9 @@ class AuthController extends Controller
         if (!$token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+        $user = auth('api')->user();
 
-        return $this->respondWithToken($token);
+        return response()->json(compact('token', 'user'));
     }
 
     /**

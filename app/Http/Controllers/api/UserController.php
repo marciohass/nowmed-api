@@ -182,7 +182,8 @@ class UserController extends Controller
                     $user = User::create($v['users']);
 
                 } catch (Exception $ex) {
-                    return $ex->getMessage();
+
+                    return response()->json(['error' => $ex->getMessage()], 500);
                 }
 
 
@@ -195,7 +196,7 @@ class UserController extends Controller
                     $contact = Contacts::create($value_contact + ['user_id' => $insertedId]);
 
                 } catch (Exception $ex) {
-                    return $ex->getMessage();
+                    return response()->json(['error' => $ex->getMessage()], 500);
                 }
             }
 
@@ -209,7 +210,7 @@ class UserController extends Controller
                     $user_location = UserLocations::create($value_user_location + ['user_id' => $insertedId, 'location_id' => $location->id]);
 
                 } catch (Exception $ex) {
-                    return $ex->getMessage();
+                    return response()->json(['error' => $ex->getMessage()], 500);
                 }
 
             }
@@ -222,7 +223,7 @@ class UserController extends Controller
                     $patients = Patients::create($value_patient + ['user_id' => $insertedId]);
 
                 } catch (Exception $ex) {
-                    return $ex->getMessage();
+                    return response()->json(['error' => $ex->getMessage()], 500);
                 }
 
             }

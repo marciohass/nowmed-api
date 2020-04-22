@@ -22,6 +22,9 @@ use Illuminate\Http\Request;
  */
 
 Route::post('auth/login', 'api\\AuthController@login');
+Route::post('auth/refresh', 'api\\AuthController@refresh');
+Route::get('auth/logout', 'api\\AuthController@logout');
+
 
 // Rota para cadastrar novos usuários (Pacientes, Médicos, Instituições)
 Route::post('patient/users', 'api\\UserController@storePatient');
@@ -38,7 +41,7 @@ Route::post('institution/users', 'api\\UserController@storeInstitution');
 
 Route::group(['middleware' => ['apiJWT']], function () {
 
-    Route::post('auth/logout', 'api\\AuthController@logout');
+
     Route::post('auth/me', 'api\\AuthController@me');
 
 
